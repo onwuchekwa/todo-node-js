@@ -9,7 +9,7 @@
     <main>
         <h1>Register</h1>
         <ul>
-           <% if(typeof error != 'undefined') { %> 
+           <% if(typeof errors != 'undefined') { %> 
                 <% errors.forEach(error => { %>
                     <li class="text-danger"><%= error.message %></li>
                 <% }) %>
