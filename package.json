@@ -1,0 +1,26 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "toDo is a web-based application that is powered with HTML5, CSS, JavaScript, PostgreSQL, and Node.js. The vision is to help students become more organized by adding and checking tasks yet to be completed.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Sunday Ogbonnaya Onwuchekwa",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "pg": "^8.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
