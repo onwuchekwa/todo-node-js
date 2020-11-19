@@ -35,7 +35,7 @@ app
           }
 
           if(errors.length > 0){
-              res.render('pages/register', (errors))
+              res.render('pages/register', { errors });
           }
       }
    })
