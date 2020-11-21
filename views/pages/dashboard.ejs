@@ -6,7 +6,7 @@
     <title>Dashbord</title>
 </head>
 <body>
-    <a href="" hre="/users/logout">Logout</a>
-    <h1>Welcome <%= firstname %></h1>
+    <a href="/users/logout">Logout</a>
+    <h1>Welcome <%= user.charAt(0).toUpperCase() + user.slice(1) %></h1>
 </body>
 </html>

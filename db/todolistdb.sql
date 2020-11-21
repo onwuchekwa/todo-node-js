@@ -39,3 +39,16 @@ GRANT USAGE, SELECT ON SEQUENCE login_id_seq TO todolistdbuser;
 GRANT USAGE, SELECT ON SEQUENCE todo_id_seq TO todolistdbuser;
 
 psql -Utodolistdbuser todolistdb
+
+INSERT INTO login (
+  username
+, password
+, firstname
+, lastname 
+)
+VALUES (
+  'donsonde@aol.com'
+, 'password'
+, 'Martin'
+, 'Amidu'
+);
