@@ -21,7 +21,7 @@ CREATE TABLE todo
 , status INT NOT NULL DEFAULT 0
 , userid INT NOT NULL
 , createdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-, CONSTRAINT fk_todo FOREIGN KEY(id) 
+, CONSTRAINT fk_todo FOREIGN KEY(userid) 
     REFERENCES login (id)
 );
 
@@ -51,4 +51,13 @@ VALUES (
 , 'password'
 , 'Martin'
 , 'Amidu'
+);
+
+INSERT INTO todo (
+  task
+, userid 
+)
+VALUES (
+  'Read chapter 10 of Java textbook'
+, 2
 );

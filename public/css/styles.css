@@ -1,3 +1,11 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Vollkorn', serif;
     font-size: 16px;
@@ -11,4 +19,25 @@ h1, h2, h3, h4, h5, h6 {
 footer {
     font-family: 'PT Mono', monospace;
     font-size: 0.80em;
+}
+
+.right-border {
+    border-right: none;
+}
+
+.todo-list-pending .row, .todo-list-completed .row {
+    padding: 3px;
+}
+
+.todo-add {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+@media only screen and (min-width: 32.5em) {
+    
+}
+
+@media only screen and (min-width: 60em) {
+
 }

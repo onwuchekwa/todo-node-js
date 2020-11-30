@@ -42,14 +42,14 @@ module.exports = {
                   } else {
                       pool.query (
                         `INSERT INTO login (
-                            username
+                          username
                         , password
                         , firstname
                         , lastname
                         )
                         VALUES
                         (
-                            $1
+                          $1
                         , $2
                         , $3
                         , $4  

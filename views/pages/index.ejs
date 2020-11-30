@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/header.ejs') %>
     <title>Home | toDo</title>
 </head>
 <body>
-    <h1>Home</h1>
-    <a href="/users/login">Login</a> | <a href="/users/register">Register</a>
+    <header></header>
+    <main>
+        <h1>Home</h1>
+        <a href="/users/login">Login</a> | <a href="/users/register">Register</a>
+    </main>
+    <footer>
+        <%- include('../partials/footer.ejs') %>
+    </footer>
 </body>
 </html>
