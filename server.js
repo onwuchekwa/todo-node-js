@@ -19,8 +19,14 @@ app
   .use(express.static(PUBLIC_DIR))
   .set('views', VIEWS_DIR)
   .set('view engine', 'ejs')
-  .use(express.urlencoded({ extended: true }))
-  .use(session({ secret: 'secret', resave: false, saveUninitialized: false }))
+  .use(express.urlencoded({ extended: false }))
+  .use(session({ 
+    store: new (require('connect-pg-simple')(session))(),
+    secret: 'secret', 
+    resave: false, 
+    saveUninitialized: false,
+    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }
+  }))
   .use(passport.initialize())
   .use(passport.session())
   .use(flash())
