@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 $(document).ready(function(){
     $('#addTask').on('submit', function() {
         window.location.reload();
