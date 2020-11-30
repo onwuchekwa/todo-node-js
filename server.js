@@ -21,7 +21,7 @@ app
   .set('view engine', 'ejs')
   .use(express.urlencoded({ extended: false }))
   .use(session({ 
-    //store: new (require('connect-pg-simple')(session))(),
+    store: new (require('connect-pg-simple')(session))(),
     secret: 'secret', 
     resave: false, 
     saveUninitialized: false,
