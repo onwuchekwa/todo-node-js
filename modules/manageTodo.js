@@ -37,14 +37,16 @@ function addTodo(req, res) {
                 if(err) {
                     throw err;
                 }
+                getTodos(req, res);
             }
         )
     }
 }
 
 function updateTodo(req, res) {
-    let {name, id} = req.body;
-
+    //let {name, id} = req.body;
+    let id = req.query.id;
+    let name = req.query.name; 
     if(name === 'pending') {
         pool.query (
             `UPDATE todo SET status = 1 WHERE id = $1 RETURNING status`, [id], (err, results) => {
@@ -67,7 +69,7 @@ function updateTodo(req, res) {
 }
 
 function deleteTodo(req, res) {
-    let {id} = req.body;
+    let id = req.query.id;
     pool.query (
         `DELETE FROM todo WHERE id = $1 RETURNING id`, [id], (err, results) => {
             if(err) {

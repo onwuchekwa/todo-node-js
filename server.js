@@ -20,7 +20,7 @@ app
   .use(express.static(PUBLIC_DIR))
   .set('views', VIEWS_DIR)
   .set('view engine', 'ejs')
-  .use(express.urlencoded({ extended: false }))
+  .use(express.urlencoded({ extended: true }))
   .use(session({ 
     store: new postgreStore({
       pool: pool,
@@ -54,10 +54,10 @@ app
       failureRedirect: "/users/login",
       failureFlash: true    
     }))
-    .post('/users/dashboard', (req, res) => { 
+    .post('/users/dashboard/', (req, res) => { 
       manageTodo.addTodo(req, res)
      })
-     .put('/users/dashboard', (req, res) => { 
+     .put('/users/dashboard/', (req, res) => { 
       manageTodo.updateTodo(req, res)
      })
      .delete('/users/dashboard', (req, res) => { 
