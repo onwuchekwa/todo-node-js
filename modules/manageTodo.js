@@ -69,7 +69,7 @@ function updateTodo(req, res) {
 function deleteTodo(req, res) {
     let {id} = req.body;
     pool.query (
-        `DELETE FROM todo WHERE id = $1 RETURNING status`, [id], (err, results) => {
+        `DELETE FROM todo WHERE id = $1 RETURNING id`, [id], (err, results) => {
             if(err) {
                 throw err;
             }

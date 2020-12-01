@@ -16,13 +16,10 @@ const toggleTaskStatus = (event, id) => {
             name,
             id
         })
-    })
-    .then(response => response.json())
-    .then(status => {
+    }).then(response => response.json()).then(status => {
         console.log(status);
         window.location.reload();
-    })
-    .catch(err => console.log(err))
+    }).catch(err => console.log(err))
 }
 
 const deleteTask = (id) => {
@@ -35,10 +32,8 @@ const deleteTask = (id) => {
             id
         })
     })
-    .then(response => response.json())
-    .then(status => {
+    .then(response => response.json()).then(status => {
         console.log(status);
         window.location.reload();
-    })
-    .catch(err => console.log(err))
+    }).catch(err => console.log(err))
 }
