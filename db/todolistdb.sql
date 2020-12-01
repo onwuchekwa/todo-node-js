@@ -25,6 +25,18 @@ CREATE TABLE todo
     REFERENCES login (id)
 );
 
+CREATE TABLE "session" (
+  "sid" VARCHAR NOT NULL COLLATE "default"
+, sess JSON NOT NULL
+, expire TIMESTAMP(6) NOT NULL
+)
+WITH (OIDS=FALSE);
+
+ALTER TABLE "session" ADD CONSTRAINT session_key 
+PRIMARY KEY("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+CREATE INDEX "IDX_session_expire" ON "session"(expire);
+
 /dt
 
 -- Create User
@@ -33,6 +45,7 @@ CREATE USER todolistdbuser WITH PASSWORD 'tododbuseropass';
 -- Grant user access to a table
 GRANT SELECT, INSERT, UPDATE, DELETE ON login TO todolistdbuser;
 GRANT SELECT, INSERT, UPDATE, DELETE ON todo TO todolistdbuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON "session" TO todolistdbuser;
 
 -- Grant user access to a sequence
 GRANT USAGE, SELECT ON SEQUENCE login_id_seq TO todolistdbuser;

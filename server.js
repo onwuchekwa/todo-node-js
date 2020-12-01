@@ -3,6 +3,7 @@ const app = express();
 const path = require('path')
 const { pool } = require('./dbConfig');
 const session = require('express-session');
+const postgreStore = require('connect-pg-simple')(session);
 const flash = require('express-flash');
 const createUser = require('./modules/createUser');
 const passport = require('passport');
@@ -21,7 +22,10 @@ app
   .set('view engine', 'ejs')
   .use(express.urlencoded({ extended: false }))
   .use(session({ 
-    store: new (require('connect-pg-simple')(session))(),
+    store: new postgreStore({
+      pool: pool,
+      tableName: 'session'
+    }),
     secret: 'secret', 
     resave: false, 
     saveUninitialized: false,
