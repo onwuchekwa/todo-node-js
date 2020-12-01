@@ -25,15 +25,13 @@ const toggleTaskStatus = (event, id) => {
     .catch(err => console.log(err))
 }
 
-const deleteTask = (event, id) => {
-    const{name} = event.target;
+const deleteTask = (id) => {
     fetch('/users/dashboard', {
         method: 'DELETE',
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            name,
             id
         })
     })

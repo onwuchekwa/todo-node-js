@@ -33,7 +33,7 @@
                                             <input type="checkbox" name="pending" value="<%= todos[i].id %>" onclick='toggleTaskStatus(event,"<%= todos[i].id %>")' title="Mark as completed" /> <%= todos[i].task %> 
                                         </div>
                                         <div class="col-sm-2"> 
-                                            <button type="button" id="del" onclick='deleteTask(event, "<%= todos[i].id %>")' class="btn btn-outline-danger" name="btnPending" title="Delete pending task"><img src="/images/icon-delete.png"></button>
+                                            <button type="button" id="btnPending" onclick='deleteTask("<%= todos[i].id %>")' class="btn btn-outline-danger" name="btnPending" title="Delete pending task"><img src="/images/icon-delete.png"></button>
                                         </div>
                                     </div>
                                 <% countPending++; } %>                               
@@ -62,7 +62,7 @@
                                             <input type="checkbox" name="completed" value="<%= todos[i].id %>" onclick='toggleTaskStatus(event,"<%= todos[i].id %>")' title="Mark as not completed"/> <%= todos[i].task %> 
                                         </div>
                                         <div class="col-sm-2"> 
-                                            <button type="button" id="del" onclick='deleteTask(event, "<%= todos[i].id %>")' class="btn btn-outline-danger" name="btnCompleted"><img src="/images/icon-delete.png" title="Delete completed task"></button>
+                                            <button type="button" id="btnCompleted" onclick='deleteTask("<%= todos[i].id %>")' class="btn btn-outline-danger" name="btnCompleted"><img src="/images/icon-delete.png" title="Delete completed task"></button>
                                         </div>
                                     </div>
                                 <% countComplete++; } %>

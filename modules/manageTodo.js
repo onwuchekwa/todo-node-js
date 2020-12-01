@@ -67,27 +67,15 @@ function updateTodo(req, res) {
 }
 
 function deleteTodo(req, res) {
-    let {name, id} = req.body;
-
-    if(name === 'btnPending') {
-        pool.query (
-            `DELETE FROM todo WHERE id = $1 AND status = 0 RETURNING status`, [id], (err, results) => {
-                if(err) {
-                    throw err;
-                }
-                res.json(results.rows[0])
+    let {id} = req.body;
+    pool.query (
+        `DELETE FROM todo WHERE id = $1 RETURNING status`, [id], (err, results) => {
+            if(err) {
+                throw err;
             }
-        )
-    } else {
-        pool.query (
-            `DELETE FROM todo WHERE id = $1 AND status = 1 RETURNING status`, [id], (err, results) => {
-                if(err) {
-                    throw err;
-                }
-                res.json(results.rows[0])
-            }
-        )
-    }
+            res.json(results.rows[0])
+        }
+    )
 }
 
 module.exports = { getTodos, addTodo, updateTodo, deleteTodo };
