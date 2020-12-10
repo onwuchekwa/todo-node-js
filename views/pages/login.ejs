@@ -5,38 +5,45 @@
     <title>Login | toDo</title>
 </head>
 <body>
-    <header></header>
-    <main class="container">
-        <h1>Login</h1>
+    <header>
+        <%- include('../partials/public-nav.ejs') %>
+    </header>
+    <main class="container-fluid">       
+        <div class="col-sm-12 col-md-4 mt-4 mb-4 card">
+            <h1 class="text-center">Login</h1>
 
-        <ul>
-            <% if(messages.success_msg) { %>
-                <li class="text-success"><%= messages.success_msg %></li>
-            <% } %>
-        </ul>
+            <ul>
+                <% if(messages.success_msg) { %>
+                    <li class="text-success ml-2"><%= messages.success_msg %></li>
+                <% } %>
+            </ul>
 
-        <ul>
-            <% if(messages.error) { %>
-                <li class="text-danger"><%= messages.error %></li>
-            <% } %>
-        </ul>
+            <ul>
+                <% if(messages.error) { %>
+                    <li class="text-danger ml-2"><%= messages.error %></li>
+                <% } %>
+            </ul>
 
-        <form action="/users/login" method="POST">
-            <div class="form-group">
-                <label for="" class="top">Username <span class="text-danger">*</span></label>
-                <input type="text" id="username" name="username" placeholder="Username" required>
-            </div>
-            <div class="form-group">
-                <label for="" class="top">Password <span class="text-danger">*</span></label>
-                <input type="password" id="password" name="password" placeholder="Password" required>
-            </div>
-            <div>
-                <input type="submit" value="Login">
-            </div>
-            <a href="/users/register">Register</a>
-        </form>
+            <form action="/users/login" method="POST">
+                <div class="form-group">
+                    <label for="" class="top">Username <span class="text-danger">*</span></label>
+                    <input type="text" id="username" name="username" placeholder="Username" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="" class="top">Password <span class="text-danger">*</span></label>
+                    <input type="password" id="password" name="password" placeholder="Password" required class="form-control">
+                </div>
+                <div class="mb-3">
+                    <input type="submit" value="Login" class="btn btn-outline-primary">
+                </div>
+                <div class="text-center mb-2">
+                    <span class="d-block">Not a member?</span>
+                    <a href="/users/register">Click here to register</a>
+                </div>
+            </form>
+        </div>
     </main>
-    <footer>
+    <footer class="bg-dark">
         <%- include('../partials/footer.ejs') %>
     </footer>
 </body>

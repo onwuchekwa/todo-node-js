@@ -5,45 +5,52 @@
     <title>Register | toDo</title>
 </head>
 <body>
-    <header></header>
-    <main class="container">
-        <h1>Register</h1>
-        <ul>
-           <% if(typeof errors != 'undefined') { %> 
-                <% errors.forEach(error => { %>
-                    <li class="text-danger"><%= error.message %></li>
-                <% }) %>
-            <% } %> 
-        </ul>
+    <header>
+        <%- include('../partials/public-nav.ejs') %>
+    </header>
+    <main class="container-fluid">
+        <div class="col-sm-12 col-md-4 mt-4 mb-4 card">
+            <h1 class="text-center">Register</h1>
+            <ul>
+            <% if(typeof errors != 'undefined') { %> 
+                    <% errors.forEach(error => { %>
+                        <li class="text-danger ml-2"><%= error.message %></li>
+                    <% }) %>
+                <% } %> 
+            </ul>
 
-        <form action="/users/register" method="POST">
-            <div class="form-group">
-                <label for="" class="top">First Name <span class="text-danger">*</span></label>
-                <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
-            </div>
-            <div class="form-group">
-                <label for="" class="top">Last Name <span class="text-danger">*</span></label>
-                <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
-            </div>
-            <div class="form-group">
-                <label for="" class="top">Username <span class="text-danger">*</span></label>
-                <input type="text" id="username" name="username" placeholder="Username" required>
-            </div>
-            <div class="form-group">
-                <label for="" class="top">Password <span class="text-danger">*</span></label>
-                <input type="password" id="password" name="password" placeholder="Password" required>
-            </div>
-            <div class="form-group">
-                <label for="" class="top">Confirm Password <span class="text-danger">*</span></label>
-                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
-            </div>
-            <div>
-                <input type="submit" value="Register">
-            </div>
-            <a href="/users/login">Already registered? Login</a>
-        </form>
+            <form action="/users/register" method="POST">
+                <div class="form-group">
+                    <label for="" class="top">First Name <span class="text-danger">*</span></label>
+                    <input type="text" id="firstname" name="firstname" placeholder="First Name" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="" class="top">Last Name <span class="text-danger">*</span></label>
+                    <input type="text" id="lastname" name="lastname" placeholder="Last Name" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="" class="top">Username <span class="text-danger">*</span></label>
+                    <input type="text" id="username" name="username" placeholder="Username" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="" class="top">Password <span class="text-danger">*</span></label>
+                    <input type="password" id="password" name="password" placeholder="Password" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="" class="top">Confirm Password <span class="text-danger">*</span></label>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required class="form-control">
+                </div>
+                <div>
+                    <input type="submit" value="Register" class="btn btn-outline-primary">
+                </div>
+                <div class="text-center mb-2">
+                    <span class="d-block">Already registered?</span>
+                    <a href="/users/login">Click here to login</a>
+                </div>
+            </form>
+        </div>
     </main>
-    <footer>
+    <footer class="bg-dark">
         <%- include('../partials/footer.ejs') %>
     </footer>
 </body>

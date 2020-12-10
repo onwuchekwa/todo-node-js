@@ -44,7 +44,6 @@ function addTodo(req, res) {
 }
 
 function updateTodo(req, res) {
-    //let {name, id} = req.body;
     let id = req.query.id;
     let name = req.query.name; 
     if(name === 'pending') {
